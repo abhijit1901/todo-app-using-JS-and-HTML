@@ -1,21 +1,29 @@
-let Input=document.querySelector("Input");
-let Button=document.querySelector("Button");
-let Ul=document.querySelector("Ul");
-Button.addEventListener("click",function(){
-    let Task=document.createElement("li");
-    let dltbttn=document.createElement("button");
-    dltbttn.innerText="remove";
-    dltbttn.classList.add("remove");
-    let Name=Input.value;
-    Name = Name.replace(/[^a-zA-Z\s]/g, '');
-    Task.innerText=Name;
-    Task.appendChild(dltbttn);
-    Ul.appendChild(Task);
-    Input.value="";
+let input = document.querySelector("input");
+let button = document.querySelector("button");
+let ul = document.querySelector("ul");
+
+button.addEventListener("click", function () {
+    let taskName = input.value.trim().replace(/[^a-zA-Z\s]/g, '').replace(/\s+/g, ' ');
+
+    if (taskName === "") return;
+
+    let task = document.createElement("li");
+    let deleteButton = document.createElement("button");
+
+    deleteButton.innerText = "Remove";
+    deleteButton.classList.add("remove");
+
+    task.innerText = taskName;
+    task.appendChild(deleteButton);
+    ul.appendChild(task);
+
+    input.value = "";
 });
-Ul.addEventListener("click",function(event){
-    if(event.target.nodeName=="BUTTON"){
-        let listItem=event.target.parentElement;
-        listItem.remove();
+
+ul.addEventListener("click", function (event) {
+    if (event.target.classList.contains("remove")) {
+        let listItem = event.target.parentElement;
+        listItem.style.opacity = "0";
+        setTimeout(() => listItem.remove(), 300); // Smooth fade-out effect
     }
-})
+});
