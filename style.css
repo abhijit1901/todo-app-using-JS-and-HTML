@@ -42,34 +42,29 @@ ul {
     list-style: none;
     padding: 0;
 }
+
 li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
+    background: white;
+    padding: 10px;
+    margin: 10px auto;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 li:hover {
-    background-color: #e0e0e0;
+    background-color: #ffc0c0;
 }
 
 .completed {
     text-decoration: line-through;
     color: gray;
     background-color: #d4edda;
-}
-.remove {
-    margin-left: 10px;
-    padding: 5px 10px;
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: 0.3s;
-}
-
-.remove:hover {
-    background-color: darkred;
 }
